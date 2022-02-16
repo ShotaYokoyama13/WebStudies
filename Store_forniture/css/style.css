@@ -1,0 +1,333 @@
+@charset "utf-8";
+/*
+共通部分
+*/
+html {
+  font-size: 100%;
+}
+/*
+フッターを画面下に配置するために、
+「position: relative;」を設定
+「min-height」で最小の高さを画面の高さにあわせる
+*/
+body {
+  color: #333;
+  font-size: 0.875rem;
+  min-height: 100vh;
+  position: relative;
+}
+a {
+  color: #333;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+a:hover {
+  opacity: 0.7;
+}
+img {
+  max-width: 100%;
+}
+li {
+  list-style: none;
+}
+/*
+コンテンツ幅を設定するための共通クラス
+*/
+.wrapper {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.content {
+  padding-top: 120px;
+  padding-bottom: 160px;
+}
+.site-title a {
+  width: 180px;
+  line-height: 1px;
+  display: block;
+}
+.page-title {
+  font-size: 0.875rem;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+/*
+ header 
+*/
+#header {
+    width: 100%;
+    height: 80px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+.site-title a {
+    width: 180px;
+    line-height: 1px;
+    display: block;
+}
+#navi {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    color: #fff;
+    padding: 36px 50px;
+    transition: all 0.5s;
+    z-index: 20;
+    opacity: 0;
+}
+#navi li {
+    padding-bottom: 14px;
+}
+#navi a {
+    color: #fff;
+}
+.open #navi {
+    left: 0;
+    opacity: 1;
+}
+.toggle-btn {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    transition: all 0.5s;
+    cursor: pointer;
+    z-index: 20;
+}
+.toggle-btn span {
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    border-radius: 4px;
+    transition: all 0.5s;
+}
+.toggle-btn span:nth-child(1) {
+    top: 10px;
+}
+.toggle-btn span:nth-child(2) {
+    bottom: 10px;
+}
+/*
+ハンバーガーメニューの線の設定（メニューが開いている時）
+線の色を白に変更
+*/
+.open .toggle-btn span {
+    background-color: #fff;
+}
+/*
+1本目の線を-45度回転
+*/
+.open .toggle-btn span:nth-child(1) {
+    -webkit-transform: translateY(4px) rotate(-45deg);
+    transform: translateY(4px) rotate(-45deg);
+}
+/*
+2本目の線を45度回転
+*/
+.open .toggle-btn span:nth-child(2) {
+    -webkit-transform: translateY(-4px) rotate(45deg);
+    transform: translateY(-4px) rotate(45deg);
+}
+#mask {
+    display: none;
+    transition: all 0.5s;
+}
+/*
+メニューを開いている時は、全体を黒背景にする
+*/
+.open #mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .8;
+    z-index: 10;
+    cursor: pointer;
+}
+/*
+ top, product
+*/
+#top {
+    padding-top: 80px;
+    padding-bottom: 120px;
+}
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.product-list li {
+    width: 23%;
+    margin-bottom: 40px;
+}
+.product-list li img {
+    display: block;
+    margin-bottom: 10px;
+}
+.product-list li p {
+    font-size: 0.75rem;
+}
+.viewmore a {
+    display: block;
+    text-align: center;
+}
+.page-number ul {
+    display: flex;
+    justify-content: center;
+}
+.page-number li {
+    padding: 0px 20px;
+}
+/*
+ about
+*/
+#about p {
+    max-width: 600px;
+    margin-bottom: 30px;
+    line-height: 190%;
+}
+/*
+ item
+*/
+#item  {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+}
+.item-img {
+    width: 50%;
+}
+.item-text {
+    width: 42%;
+}
+#item p {
+    margin-bottom: 30px;
+}
+#item dl {
+    display: flex;
+    flex-wrap: wrap;
+}
+#item dt {
+    width: 30%;
+}
+#item dd {
+    width: 70%;
+}
+.to-products a {
+    display: block;
+    text-align: center;
+    margin-top: 60px;
+}
+/*
+ company
+*/
+#company {
+    max-width: 600px;
+}
+#company dl {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+#company dt {
+    width: 30%;
+    padding: 20px 10px;
+    border-bottom: 1px solid rgba(73, 73, 73, 0.200);
+}
+#company dt:last-of-type {
+    border: none;
+}
+#company dd {
+    width: 70%;
+    padding: 20px 10px;
+    border-bottom: 1px solid rgba(73, 73, 73, 0.200);
+}
+#company dd:last-of-type {
+    border: none;
+}
+#company .map iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+}
+/*
+ footer
+*/
+#footer {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    padding-bottom: 20px;
+    left: 0;
+    right: 0;
+}
+#footer ul {
+    display: flex;
+}
+#footer li {
+    display: block;
+    font-size: 0.75rem;
+    margin-right: 30px;
+}
+#footer p {
+    font-size: 0.25rem;
+    vertical-align: baseline;
+}
+@media screen and (max-width: 900px) {
+    /*
+    top, product
+    */
+    .product-list li{
+        width: 47%;
+    }
+    /*
+     item
+    */
+    #item {
+        flex-direction: column;
+    }
+    .item-img {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .item-text {
+        width: 100%;
+    }
+    /*
+     company
+    */
+    #company dl {
+        flex-direction: column;
+    }
+    #company dt {
+        width: 100%;
+        padding-bottom: 5px;
+        border-bottom:  none;
+    }
+    #company dd {
+        width: 100%;
+        padding-top: 5px;
+    }
+    /*
+     footer
+    */
+    #footer {
+        flex-direction: column;
+    }
+    #footer ul {
+        margin-bottom: 5px;
+    }
+}
